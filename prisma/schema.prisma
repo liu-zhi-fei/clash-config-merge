@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Rule {
+  id        Int      @id @default(autoincrement())
+  url       String
+  items     Item[]
+  createdAt DateTime @default(now()) // 自动生成创建时间
+  updatedAt DateTime @updatedAt // 自动更新的时间戳
+
+  @@index([url])
+}
+
+model Item {
+  id        Int      @id @default(autoincrement())
+  value     String
+  type      String
+  policy    String
+  ruleId    Int
+  rule      Rule     @relation(fields: [ruleId], references: [id])
+  createdAt DateTime @default(now()) // 自动生成创建时间
+  updatedAt DateTime @updatedAt // 自动更新的时间戳
+
+  @@index([type, value, policy])
+}
