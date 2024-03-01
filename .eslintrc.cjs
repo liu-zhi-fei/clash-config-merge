@@ -31,9 +31,10 @@ const config = {
         checksVoidReturn: { attributes: false },
       },
     ],
-    "@typescript-eslint/no-empty-interface" : "off",
+    "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-unsafe-call": "off",
     "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
   },
 };
 
