@@ -33,6 +33,7 @@ const config = {
     ],
     "@typescript-eslint/no-empty-interface" : "off",
     "@typescript-eslint/no-unsafe-call": "off",
+    "@typescript-eslint/no-unsafe-argument": "off",
   },
 };
 
