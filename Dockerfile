@@ -10,6 +10,8 @@ WORKDIR /app
 # 复制 package.json 和 pnpm-lock.yaml 文件
 COPY package.json pnpm-lock.yaml ./
 
+ENV DATABASE_URL=your_database_connection_string
+
 # 安装项目依赖
 RUN pnpm install
 
