@@ -11,6 +11,7 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 
 ENV DATABASE_URL="file:./db.sqlite"
+ENV PORT="80"
 
 # 安装项目依赖
 RUN pnpm install
@@ -25,7 +26,7 @@ RUN pnpx prisma generate
 RUN pnpm build
 
 # 应用将在 3000 端口运行，暴露该端口
-EXPOSE 3000
+EXPOSE 80
 
 # 启动已构建的 Next.js 应用
 CMD ["pnpm", "start"]

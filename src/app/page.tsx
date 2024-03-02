@@ -69,10 +69,10 @@ const emptyRule: Rule = {
 
 const itemSchema = z.object({
   url: z.string().min(1, "Value is required"),
-  id: z.number(),
+  id: z.number().optional(),
   items: z.array(
     z.object({
-      id: z.number(),
+      id: z.number().optional(),
       value: z.string().min(1, "Value is required"),
       type: z.string().min(1, "Value is required"),
       policy: z.string().min(1, "Value is required"),
