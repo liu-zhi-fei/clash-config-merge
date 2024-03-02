@@ -21,7 +21,7 @@ COPY . .
 
 # 如果使用 Prisma，生成 Prisma 客户端
 RUN pnpx prisma generate
-
+RUN pnpx prisma migrate deploy
 # 构建 Next.js 项目的生产版本
 RUN pnpm build
 
